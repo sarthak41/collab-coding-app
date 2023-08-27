@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  #root {
+    @apply font-inter;
+  }
+
+  .overlay {
+    @apply h-screen w-screen bg-gradient-to-r from-slate-500 to-slate-800 flex justify-center items-center;
+  }
+
+  .modal {
+    @apply bg-slate-300 container h-auto w-80 rounded-lg flex flex-col justify-center items-center gap-4 p-8;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-b from-slate-600 to-slate-800 text-transparent bg-clip-text;
+  }
+
+  .form {
+    @apply flex flex-col gap-4;
+  }
+
+  .label {
+    @apply uppercase text-xs;
+  }
+
+  .input {
+    @apply h-8 w-64 rounded-md p-2;
+  }
+
+  .spinner {
+    @apply w-6 h-6 border-4 border-solid border-slate-300 border-b-slate-800 rounded-full animate-spin;
+  }
+}
