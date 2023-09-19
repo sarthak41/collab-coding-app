@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import Input from "../components/Input";
 import SubmitButton from "../components/SubmitButton";
 import { useAuth } from "../hooks/useAuth";
-import { User } from "../interfaces/User";
+import { User } from "../models/User";
 
 const Login: FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -12,9 +12,9 @@ const Login: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const { user, login } = useAuth();
-  // if (user) {
-  //   return <Navigate to="/workspace" replace={true} />;
-  // }
+  if (user) {
+    return <Navigate to="/workspace" replace={true} />;
+  }
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     try {
@@ -39,7 +39,7 @@ const Login: FC = () => {
   };
 
   return (
-    <div className="overlay">
+    <div className="overlay gradient-bg">
       <div className="modal">
         <h2 className="text-2xl text-center font-bold text-gradient">
           Welcome back!

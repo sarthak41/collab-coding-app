@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.ts"
+    "start": "nodemon server/server.ts",
+    "vscode": "code . && code client",
+    "client": "npm run dev --prefix client"
   },
   "keywords": [],
   "author": "",

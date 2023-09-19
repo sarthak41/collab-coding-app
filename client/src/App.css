@@ -5,16 +5,32 @@
 @tailwind utilities;
 
 @layer components {
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-800 rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-950 rounded-lg;
+  }
+
   #root {
     @apply font-inter;
   }
 
+  .gradient-bg {
+    @apply bg-gradient-to-r from-slate-500 to-slate-800;
+  }
+
   .overlay {
-    @apply h-screen w-screen bg-gradient-to-r from-slate-500 to-slate-800 flex justify-center items-center;
+    @apply h-screen w-screen flex justify-center items-center z-40 absolute bg-black bg-opacity-40;
   }
 
   .modal {
-    @apply bg-slate-300 container h-auto w-80 rounded-lg flex flex-col justify-center items-center gap-4 p-8;
+    @apply bg-slate-300 container h-auto w-96 rounded-lg flex flex-col justify-center items-center gap-4 p-8 z-50;
   }
 
   .text-gradient {
@@ -36,4 +52,25 @@
   .spinner {
     @apply w-6 h-6 border-4 border-solid border-slate-300 border-b-slate-800 rounded-full animate-spin;
   }
+
+  .dropdown {
+    @apply flex flex-col bg-slate-800 scale-y-[0.95] translate-y-[90%] opacity-0 transition-all ease-linear duration-200 absolute bottom-0 right-0 -translate-x-0 transform z-50 w-36 rounded-md;
+  }
+
+  .dropdown-grid {
+    @apply grid grid-cols-2;
+  }
+
+  .dropdown > button {
+    @apply rounded-md;
+  }
+}
+
+.cm-editor {
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.cm-theme {
+  overflow: hidden;
 }

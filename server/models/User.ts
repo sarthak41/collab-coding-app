@@ -1,12 +1,12 @@
-export default interface User {
+export type User = {
   id: number;
   username: string;
   email: string;
   password: string;
-}
+};
 
-export interface UserPublic {
+export type UserPublic = {
   id: number;
   username: string;
   email: string;
-}
+};

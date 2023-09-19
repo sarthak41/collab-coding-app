@@ -33,7 +33,7 @@ const Signup: FC = () => {
   };
 
   return (
-    <div className="overlay">
+    <div className="overlay gradient-bg">
       <div className="modal">
         <h2 className="text-2xl text-center font-bold text-gradient">
           Create an account

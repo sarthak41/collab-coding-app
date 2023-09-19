@@ -1,7 +1,7 @@
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import User, { UserPublic } from "../models/User";
+import { User, UserPublic } from "../models/User";
 import dotenv from "dotenv";
 import { NextFunction, Request, Response } from "express";
 import pool from "../config/db";
@@ -48,7 +48,8 @@ const signup = async (
 
     const user = (
       await pool.query<UserPublic>(
-        `INSERT INTO users(email, username, password) 
+        `
+      INSERT INTO users(email, username, password) 
       VALUES($1,$2,$3) 
       RETURNING id, email, username;`,
         [email, username, encryptedPassword]
@@ -82,7 +83,7 @@ const login = async (
         jwt.sign(
           { id: user.id, username: user.username, email: user.email },
           process.env.JWT_SECRET as jwt.Secret,
-          { expiresIn: "15m" },
+          { expiresIn: "30d" },
           (err, token) => {
             if (err) return next(err);
 

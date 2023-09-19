@@ -26,14 +26,7 @@ CREATE TABLE code_documents (
   code_room_id INT REFERENCES code_rooms(id),
   title VARCHAR(63) NOT NULL,
   language VARCHAR(50) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE (code_room_id, title)
-);
-
-CREATE TABLE code_document_versions (
-  code_document_id INT REFERENCES code_documents(id),
-  version_number INT NOT NULL,
   content TEXT NOT NULL,
-  saved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (code_document_id, version_number)
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT NOW()
 );

@@ -16,7 +16,9 @@ const PORT = process.env.PORT || 5000;
 import("./config/passport");
 
 import userRouter from "./routes/user";
+import codeRouter from "./routes/coderoom";
 app.use("/api/users", userRouter);
+app.use("/api/code", codeRouter);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
